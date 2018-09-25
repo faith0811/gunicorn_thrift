@@ -32,7 +32,10 @@ except ImportError:
 from thriftpy.transport import TSocket
 from thriftpy.transport import TTransportException
 from thriftpy.protocol.exc import TProtocolException
-from thriftpy.protocol.cybin import ProtocolError
+try:
+    from thriftpy.protocol.cybin import ProtocolError
+except ImportError:
+    ProtocolError = None
 from thriftpy.thrift import TDecodeException
 
 from gunicorn.errors import AppImportError
